@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Pembayaran</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>401</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="labelIdBayar">
+      <property name="text">
+       <string>ID Bayar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="editIdBayar"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="labelBiaya">
+      <property name="text">
+       <string>Biaya Iklan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="editBiaya"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="labelRekTujuan">
+      <property name="text">
+       <string>Rek Tujuan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="editRekTujuan"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelNamaRek">
+      <property name="text">
+       <string>Nama Rekening</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="editNamaRek"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="labelNominal">
+      <property name="text">
+       <string>Nominal Transfer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="editNominal"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="labelKdIklan">
+      <property name="text">
+       <string>Kode Iklan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="editKdIklan"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnSimpan">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SIMPAN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnHapus">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>160</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HAPUS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnUbah">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>160</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>UBAH</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnBersih">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>190</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BERSIH</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="editCari">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>401</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ketik untuk mencari...</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tabelPembayaran">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>401</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>ID Bayar</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nominal</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nama Rek</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Rek Tujuan</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Iklan</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

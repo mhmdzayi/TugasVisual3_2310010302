@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Iklan</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>401</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="labelKdIklan">
+      <property name="text">
+       <string>Kode Iklan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="editKdIklan"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="labelJudul">
+      <property name="text">
+       <string>Judul Iklan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="editJudul"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="labelHarga">
+      <property name="text">
+       <string>Harga</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="editHarga"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelKdKategori">
+      <property name="text">
+       <string>Kode Kategori</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="editKdKategori"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="labelKdMember">
+      <property name="text">
+       <string>Kode Member</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="editKdMember"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnSimpan">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SIMPAN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnHapus">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>140</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HAPUS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnUbah">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>140</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>UBAH</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnBersih">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>170</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BERSIH</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="editCari">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>401</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Ketik untuk mencari...</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tabelIklan">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>401</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>ID Iklan</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Judul</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Harga</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Kategori</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Member</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu_Utama">
+    <property name="title">
+     <string>Menu Utama</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionIklan"/>
+    <addaction name="actionKategori"/>
+    <addaction name="actionKota"/>
+    <addaction name="actionMember"/>
+    <addaction name="actionPembayaran"/>
+    <addaction name="actionPesanInbox"/>
+   </widget>
+   <addaction name="menuMenu_Utama"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionIklan">
+   <property name="text">
+    <string>Iklan</string>
+   </property>
+  </action>
+  <action name="actionKategori">
+   <property name="text">
+    <string>Kategori</string>
+   </property>
+  </action>
+  <action name="actionKota">
+   <property name="text">
+    <string>Kota</string>
+   </property>
+  </action>
+  <action name="actionIMember">
+   <property name="text">
+    <string>Member</string>
+   </property>
+  </action>
+  <action name="actionPembayaran">
+   <property name="text">
+    <string>Pembayaran</string>
+   </property>
+  </action>
+  <action name="actionPesanInbox">
+   <property name="text">
+    <string>PesanInbox</string>
+   </property>
+  </action>
+  <action name="actionMember">
+   <property name="text">
+    <string>Member</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
