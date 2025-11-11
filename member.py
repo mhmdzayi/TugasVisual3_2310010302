@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -25,13 +24,12 @@ class member(QWidget):
         self.formMember.btnUbah.clicked.connect(self.doUbahMember)
         self.formMember.btnHapus.clicked.connect(self.doHapusMember)
         self.formMember.editCari.textChanged.connect(self.doCariMember)
-        self.formMember.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formMember.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataMember()
         self.setWindowTitle("Data Member")
 
     def doSimpanMember(self):
-        # ... (kode simpan) ...
         if not self.formMember.editKdMember.text().strip():
             QMessageBox.information(None,"Informasi","Kode Member belum di isi")
             self.formMember.editKdMember.setFocus()
@@ -53,7 +51,6 @@ class member(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahMember(self):
-        # ... (kode ubah) ...
         tempID = self.formMember.editKdMember.text()
         tempNama = self.formMember.editNmMember.text()
         tempEmail = self.formMember.editEmail.text()
@@ -65,13 +62,11 @@ class member(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusMember(self):
-        # ... (kode hapus) ...
         tempID = self.formMember.editKdMember.text()
         self.crud.hapusMember(tempID)
         self.tampilDataMember()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formMember.editKdMember.clear()
         self.formMember.editNmMember.clear()
@@ -81,7 +76,6 @@ class member(QWidget):
         self.formMember.editKdMember.setFocus()
 
     def tampilDataMember(self):
-        # ... (kode tampil data) ...
         baris = self.crud.dataMember()
         self.formMember.tabelMember.setRowCount(0)
         for r in baris:
@@ -94,7 +88,6 @@ class member(QWidget):
             self.formMember.tabelMember.setItem(i,4,QTableWidgetItem(r["nama_kota"]))
 
     def doCariMember(self):
-        # ... (kode cari) ...
         cari = self.formMember.editCari.text()
         baris = self.crud.CariMember(cari)
         self.formMember.tabelMember.setRowCount(0)

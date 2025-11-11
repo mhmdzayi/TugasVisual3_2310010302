@@ -1,9 +1,7 @@
-# This Python file uses the following encoding: utf-8
 import mysql.connector
 
 class my_cruddb:
     def __init__(self):
-        # Terhubung ke database Anda
         self.conn = mysql.connector.connect(
             host = 'localhost',
             user = 'root',
@@ -11,9 +9,6 @@ class my_cruddb:
             database = 'tugasvisual3_2310010302'
         )
 
-    # ==========================================================
-    # === 1. CRUD KATEGORI
-    # ==========================================================
     def simpanKategori(self, kd, nama):
         alamat = self.conn.cursor()
         alamat.execute("insert into kategori (kd_kategori, nm_kategori) value(%s,%s)",(kd, nama))
@@ -47,9 +42,6 @@ class my_cruddb:
         alamat.close()
         return record
 
-    # ==========================================================
-    # === 2. CRUD KOTA
-    # ==========================================================
     def simpanKota(self, kd, nama):
         alamat = self.conn.cursor()
         alamat.execute("insert into kota (kd_kota, nama_kota) value(%s,%s)",(kd, nama))
@@ -83,9 +75,6 @@ class my_cruddb:
         alamat.close()
         return record
 
-    # ==========================================================
-    # === 3. CRUD MEMBER
-    # ==========================================================
     def simpanMember(self, kd, nama, email, hp, kd_kota):
         alamat = self.conn.cursor()
         sql = "insert into member (kd_member, nm_member, alamat_email, hp_telp, kd_kota) value(%s,%s,%s,%s,%s)"
@@ -108,7 +97,6 @@ class my_cruddb:
 
     def dataMember(self):
         alamat = self.conn.cursor(dictionary = True)
-        # JOIN dengan tabel kota untuk mengambil nama_kota
         sql = """
             SELECT m.*, k.nama_kota
             FROM member m
@@ -134,9 +122,6 @@ class my_cruddb:
         alamat.close()
         return record
 
-    # ==========================================================
-    # === 4. CRUD IKLAN
-    # ==========================================================
     def simpanIklan(self, kd, judul, harga, kd_kategori, kd_member):
         alamat = self.conn.cursor()
         sql = "insert into iklan (kd_iklan, judul_iklan, harga, kd_kategori, kd_member) value(%s,%s,%s,%s,%s)"
@@ -159,7 +144,6 @@ class my_cruddb:
 
     def dataIklan(self):
         alamat = self.conn.cursor(dictionary = True)
-        # JOIN dengan 2 tabel (kategori dan member)
         sql = """
             SELECT i.kd_iklan, i.judul_iklan, i.harga, k.nm_kategori, m.nm_member
             FROM iklan i
@@ -187,9 +171,6 @@ class my_cruddb:
         alamat.close()
         return record
 
-    # ==========================================================
-    # === 5. CRUD PEMBAYARAN
-    # ==========================================================
     def simpanPembayaran(self, id, biaya, rek, namarek, nominal, kd_iklan):
         alamat = self.conn.cursor()
         sql = "insert into pembayaran (ID_bayar, biaya_iklan, rek_tujuan, nama_rek, nominal, kd_iklan) value(%s,%s,%s,%s,%s,%s)"
@@ -212,7 +193,6 @@ class my_cruddb:
 
     def dataPembayaran(self):
         alamat = self.conn.cursor(dictionary = True)
-        # JOIN dengan tabel iklan untuk mengambil judul_iklan
         sql = """
             SELECT p.*, i.judul_iklan
             FROM pembayaran p
@@ -238,9 +218,6 @@ class my_cruddb:
         alamat.close()
         return record
 
-    # ==========================================================
-    # === 6. CRUD PESAN_INBOX
-    # ==========================================================
     def simpanPesan(self, kd, pengirim, email, isi, kd_member):
         alamat = self.conn.cursor()
         sql = "insert into pesan_inbox (kd_pesan_inb, nm_pengirim, email_pengirim, isi_pesan_inb, kd_member) value(%s,%s,%s,%s,%s)"
@@ -257,13 +234,12 @@ class my_cruddb:
 
     def hapusPesan(self, kd):
         alamat = self.conn.cursor()
-        alamat.execute("delete from pesan_inbox where kd_pesan_inb=%s", (kd,))
+        alamat.execute("delete from pesan_inbaox where kd_pesan_inb=%s", (kd,))
         self.conn.commit()
         alamat.close()
 
     def dataPesan(self):
         alamat = self.conn.cursor(dictionary = True)
-        # JOIN dengan tabel member untuk mengambil nm_member
         sql = """
             SELECT p.*, m.nm_member
             FROM pesan_inbox p

@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -25,13 +24,12 @@ class pesan_inbox(QWidget):
         self.formPesan.btnUbah.clicked.connect(self.doUbahPesan)
         self.formPesan.btnHapus.clicked.connect(self.doHapusPesan)
         self.formPesan.editCari.textChanged.connect(self.doCariPesan)
-        self.formPesan.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formPesan.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataPesan()
         self.setWindowTitle("Data Pesan Inbox")
 
     def doSimpanPesan(self):
-        # ... (kode simpan) ...
         if not self.formPesan.editKdPesan.text().strip():
             QMessageBox.information(None,"Informasi","Kode Pesan belum di isi")
             self.formPesan.editKdPesan.setFocus()
@@ -50,7 +48,6 @@ class pesan_inbox(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahPesan(self):
-        # ... (kode ubah) ...
         tempID = self.formPesan.editKdPesan.text()
         tempPengirim = self.formPesan.editNmPengirim.text()
         tempEmail = self.formPesan.editEmailPengirim.text()
@@ -62,13 +59,11 @@ class pesan_inbox(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusPesan(self):
-        # ... (kode hapus) ...
         tempID = self.formPesan.editKdPesan.text()
         self.crud.hapusPesan(tempID)
         self.tampilDataPesan()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formPesan.editKdPesan.clear()
         self.formPesan.editNmPengirim.clear()
@@ -78,7 +73,6 @@ class pesan_inbox(QWidget):
         self.formPesan.editKdPesan.setFocus()
 
     def tampilDataPesan(self):
-        # ... (kode tampil data) ...
         baris = self.crud.dataPesan()
         self.formPesan.tabelPesan.setRowCount(0)
         for r in baris:
@@ -91,7 +85,6 @@ class pesan_inbox(QWidget):
             self.formPesan.tabelPesan.setItem(i,4,QTableWidgetItem(r["nm_member"]))
 
     def doCariPesan(self):
-        # ... (kode cari) ...
         cari = self.formPesan.editCari.text()
         baris = self.crud.CariPesan(cari)
         self.formPesan.tabelPesan.setRowCount(0)

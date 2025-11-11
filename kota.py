@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -25,13 +24,12 @@ class kota(QWidget):
         self.formKota.btnUbah.clicked.connect(self.doUbahKota)
         self.formKota.btnHapus.clicked.connect(self.doHapusKota)
         self.formKota.editCari.textChanged.connect(self.doCariKota)
-        self.formKota.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formKota.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataKota()
         self.setWindowTitle("Data Kota")
 
     def doSimpanKota(self):
-        # ... (kode simpan) ...
         if not self.formKota.editKdKota.text().strip():
             QMessageBox.information(None,"Informasi","Kode Kota belum di isi")
             self.formKota.editKdKota.setFocus()
@@ -49,7 +47,6 @@ class kota(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahKota(self):
-        # ... (kode ubah) ...
         tempID = self.formKota.editKdKota.text()
         tempNama = self.formKota.editNamaKota.text()
         self.crud.ubahKota(tempID, tempNama)
@@ -57,20 +54,17 @@ class kota(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusKota(self):
-        # ... (kode hapus) ...
         tempID = self.formKota.editKdKota.text()
         self.crud.hapusKota(tempID)
         self.tampilDataKota()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formKota.editKdKota.clear()
         self.formKota.editNamaKota.clear()
         self.formKota.editKdKota.setFocus()
 
     def tampilDataKota(self):
-        # ... (kode tampil data) ...
         baris = self.crud.dataKota()
         self.formKota.tabelKota.setRowCount(0)
         for r in baris:
@@ -80,7 +74,6 @@ class kota(QWidget):
             self.formKota.tabelKota.setItem(i,1,QTableWidgetItem(r["nama_kota"]))
 
     def doCariKota(self):
-        # ... (kode cari) ...
         cari = self.formKota.editCari.text()
         baris = self.crud.CariKota(cari)
         self.formKota.tabelKota.setRowCount(0)

@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -25,13 +24,12 @@ class pembayaran(QWidget):
         self.formPembayaran.btnUbah.clicked.connect(self.doUbahPembayaran)
         self.formPembayaran.btnHapus.clicked.connect(self.doHapusPembayaran)
         self.formPembayaran.editCari.textChanged.connect(self.doCariPembayaran)
-        self.formPembayaran.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formPembayaran.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataPembayaran()
         self.setWindowTitle("Data Pembayaran")
 
     def doSimpanPembayaran(self):
-        # ... (kode simpan) ...
         if not self.formPembayaran.editIdBayar.text().strip():
             QMessageBox.information(None,"Informasi","ID Bayar belum di isi")
             self.formPembayaran.editIdBayar.setFocus()
@@ -51,7 +49,6 @@ class pembayaran(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahPembayaran(self):
-        # ... (kode ubah) ...
         tempID = self.formPembayaran.editIdBayar.text()
         tempBiaya = self.formPembayaran.editBiaya.text()
         tempRek = self.formPembayaran.editRekTujuan.text()
@@ -64,13 +61,11 @@ class pembayaran(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusPembayaran(self):
-        # ... (kode hapus) ...
         tempID = self.formPembayaran.editIdBayar.text()
         self.crud.hapusPembayaran(tempID)
         self.tampilDataPembayaran()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formPembayaran.editIdBayar.clear()
         self.formPembayaran.editBiaya.clear()
@@ -81,7 +76,6 @@ class pembayaran(QWidget):
         self.formPembayaran.editIdBayar.setFocus()
 
     def tampilDataPembayaran(self):
-        # ... (kode tampil data) ...
         baris = self.crud.dataPembayaran()
         self.formPembayaran.tabelPembayaran.setRowCount(0)
         for r in baris:
@@ -94,7 +88,6 @@ class pembayaran(QWidget):
             self.formPembayaran.tabelPembayaran.setItem(i,4,QTableWidgetItem(r["judul_iklan"]))
 
     def doCariPembayaran(self):
-        # ... (kode cari) ...
         cari = self.formPembayaran.editCari.text()
         baris = self.crud.CariPembayaran(cari)
         self.formPembayaran.tabelPembayaran.setRowCount(0)

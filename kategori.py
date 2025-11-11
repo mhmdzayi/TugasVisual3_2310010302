@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -21,18 +20,16 @@ class kategori(QWidget):
 
         self.crud = my_cruddb()
 
-        # Hubungkan tombol
         self.formKategori.btnSimpan.clicked.connect(self.doSimpanKategori)
         self.formKategori.btnUbah.clicked.connect(self.doUbahKategori)
         self.formKategori.btnHapus.clicked.connect(self.doHapusKategori)
         self.formKategori.editCari.textChanged.connect(self.doCariKategori)
-        self.formKategori.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formKategori.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataKategori()
         self.setWindowTitle("Data Kategori")
 
     def doSimpanKategori(self):
-        # ... (Kode simpan Anda di sini, tidak berubah) ...
         if not self.formKategori.editKdKategori.text().strip():
             QMessageBox.information(None,"Informasi","Kode Kategori belum di isi")
             self.formKategori.editKdKategori.setFocus()
@@ -50,7 +47,6 @@ class kategori(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahKategori(self):
-        # ... (Kode ubah Anda di sini, tidak berubah) ...
         tempID = self.formKategori.editKdKategori.text()
         tempNama = self.formKategori.editNmKategori.text()
         self.crud.ubahKategori(tempID, tempNama)
@@ -58,20 +54,17 @@ class kategori(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusKategori(self):
-        # ... (Kode hapus Anda di sini, tidak berubah) ...
         tempID = self.formKategori.editKdKategori.text()
         self.crud.hapusKategori(tempID)
         self.tampilDataKategori()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formKategori.editKdKategori.clear()
         self.formKategori.editNmKategori.clear()
         self.formKategori.editKdKategori.setFocus()
 
     def tampilDataKategori(self):
-        # ... (Kode tampil data Anda di sini, tidak berubah) ...
         baris = self.crud.dataKategori()
         self.formKategori.tabelKategori.setRowCount(0)
         for r in baris:
@@ -81,7 +74,6 @@ class kategori(QWidget):
             self.formKategori.tabelKategori.setItem(i,1,QTableWidgetItem(r["nm_kategori"]))
 
     def doCariKategori(self):
-        # ... (Kode cari Anda di sini, tidak berubah) ...
         cari = self.formKategori.editCari.text()
         baris = self.crud.CariKategori(cari)
         self.formKategori.tabelKategori.setRowCount(0)
@@ -90,5 +82,3 @@ class kategori(QWidget):
             self.formKategori.tabelKategori.insertRow(i)
             self.formKategori.tabelKategori.setItem(i,0,QTableWidgetItem(r["kd_kategori"]))
             self.formKategori.tabelKategori.setItem(i,1,QTableWidgetItem(r["nm_kategori"]))
-
-# ... (kode if __name__ == "__main__": opsional) ...

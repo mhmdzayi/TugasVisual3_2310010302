@@ -1,4 +1,3 @@
-# This Python file uses the following encoding: utf-8
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtUiTools import QUiLoader
@@ -25,13 +24,12 @@ class iklan(QWidget):
         self.formIklan.btnUbah.clicked.connect(self.doUbahIklan)
         self.formIklan.btnHapus.clicked.connect(self.doHapusIklan)
         self.formIklan.editCari.textChanged.connect(self.doCariIklan)
-        self.formIklan.btnBersih.clicked.connect(self.doBersih) # <-- TAMBAHAN
+        self.formIklan.btnBersih.clicked.connect(self.doBersih)
 
         self.tampilDataIklan()
         self.setWindowTitle("Data Iklan")
 
     def doSimpanIklan(self):
-        # ... (kode simpan) ...
         if not self.formIklan.editKdIklan.text().strip():
             QMessageBox.information(None,"Informasi","Kode Iklan belum di isi")
             self.formIklan.editKdIklan.setFocus()
@@ -53,7 +51,6 @@ class iklan(QWidget):
                 QMessageBox.information(None,"Informasi","Data Berhasil di Simpan")
 
     def doUbahIklan(self):
-        # ... (kode ubah) ...
         tempID = self.formIklan.editKdIklan.text()
         tempJudul = self.formIklan.editJudul.text()
         tempHarga = self.formIklan.editHarga.text()
@@ -65,13 +62,11 @@ class iklan(QWidget):
         QMessageBox.information(None,"Informasi","Data Berhasil di Ubah")
 
     def doHapusIklan(self):
-        # ... (kode hapus) ...
         tempID = self.formIklan.editKdIklan.text()
         self.crud.hapusIklan(tempID)
         self.tampilDataIklan()
         QMessageBox.information(None,"Informasi","Data Berhasil di Hapus")
 
-    # <-- TAMBAHAN (Fungsi Baru) -->
     def doBersih(self):
         self.formIklan.editKdIklan.clear()
         self.formIklan.editJudul.clear()
@@ -81,7 +76,6 @@ class iklan(QWidget):
         self.formIklan.editKdIklan.setFocus()
 
     def tampilDataIklan(self):
-        # ... (kode tampil data) ...
         baris = self.crud.dataIklan()
         self.formIklan.tabelIklan.setRowCount(0)
         for r in baris:
@@ -94,7 +88,6 @@ class iklan(QWidget):
             self.formIklan.tabelIklan.setItem(i,4,QTableWidgetItem(r["nm_member"]))
 
     def doCariIklan(self):
-        # ... (kode cari) ...
         cari = self.formIklan.editCari.text()
         baris = self.crud.CariIklan(cari)
         self.formIklan.tabelIklan.setRowCount(0)
